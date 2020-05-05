@@ -1,0 +1,30 @@
+{
+    "dependencies":{
+        "cfmigrations":"^2.0.8",
+        "coldbox":"6.0.0-RC-snapshot",
+        "qb":"^7.7.1",
+        "whoops":"^2.2.0"
+    },
+    "installPaths":{
+        "cfmigrations":"modules/cfmigrations/",
+        "coldbox":"coldbox/",
+        "qb":"modules/qb/",
+        "whoops":"modules/whoops/"
+    },
+    "cfmigrations":{
+        "defaultGrammar":"SqlServerGrammar@qb",
+        "connectionInfo":{
+            "class":"com.microsoft.sqlserver.jdbc.SQLServerDriver"
+            , "bundleName": 'org.lucee.mssql'
+            , "bundleVersion" : '7.2.2.jre8',
+            "connectionString":"jdbc:sqlserver://localhost:1433;DatabaseName=azteca;sendStringParametersAsUnicode=true;SelectMethod=direct",
+            "username":"azteca",
+            "password":"azteca"
+        }
+    },
+    "location":"",
+    "name":"ITB2020",
+    "scripts":{},
+    "slug":"itb2020",
+    "version":"1.0.0"
+}

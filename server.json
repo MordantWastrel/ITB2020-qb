@@ -1,0 +1,10 @@
+{
+    "app":{
+        "cfengine":"lucee@5.3.6-SNAPSHOT+55"
+    },
+    "web":{
+        "rewrites":{
+            "enable":"true"
+        }
+    }
+}
