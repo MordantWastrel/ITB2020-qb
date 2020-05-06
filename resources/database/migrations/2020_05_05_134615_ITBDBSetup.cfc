@@ -1,5 +1,5 @@
 component {
-    //wo.INITIATEDDATE", "DESC", "wo.DATEWOCLOSED", "DESC");
+
     function up( schema, query ) {
       
         schema.create( "workorder", ( table ) => {
