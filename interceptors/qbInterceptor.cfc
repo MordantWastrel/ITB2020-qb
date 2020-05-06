@@ -1,10 +1,5 @@
 component extends="coldbox.system.Interceptor"{
 
-    // DI
-
-	/**
-	* Configure
-	*/
 	function configure(){
         SUPER.configure();
     }

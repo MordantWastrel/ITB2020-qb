@@ -29,8 +29,12 @@ component extends="coldbox.system.EventHandler"{
 				}
 			 )
 			.orderByDesc( [ "wo.INITIATEDDATE", "wo.DATEWOCLOSED" ] );
-			 prc.sql = qb.toSQL();
+
+			// get debugging while we still have the builder object, before we execute the query
+			 prc.sql = qb.toSQL( showBindings = false );
+
 			 prc.result = qb.get();
+			
 	}
 
 	private array function getEntityUIDs() {
@@ -42,6 +46,30 @@ component extends="coldbox.system.EventHandler"{
 			.map( ( uidRow ) => {
 				return uidRow.entityUID;
 			} );
+	}
+
+	public function clone( event, rc, prc ) {
+		// make a simple query object
+		var query = wirebox.getInstance( "QueryBuilder@qb" )
+			.from( "books" );
+
+		// we want another, similar query, so we can just use that first query object, right...?
+		var otherQuery = query.whereTitle( 'Les Miserables' )
+		
+		// No: otherQuery is a reference to the ORIGINAL query object, so we just added a clause to our original query
+		dump( query.getBindings() );
+
+		// Instead, use clone()
+		query = wirebox.getInstance( "QueryBuilder@qb" )
+			.from( "books" );
+		otherQuery = query.clone()
+			.whereTitle( 'Les Miserables' );
+
+		// original query should have no bindings
+		dump( query.getBindings() ); 
+		
+
+	event.noRender();
 	}
 
 

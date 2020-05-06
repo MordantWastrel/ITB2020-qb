@@ -48,17 +48,25 @@
 							</a>
 							<div id="collapseQuery#i#" class="collapse">
 								<ul>
-									<!--- uncomment if we want the query object
+									<!--- uncomment if we want the query object 
 										<li>Query: <cfdump var="#prc.qbQueries[ i ].query#"></li>
 									--->
 									<li>SQL: #prc.qbQueries[ i ].sql#</li>
+									<li>Execution Time: #prc.qbQueries[ i ].result.executionTime#ms</li>
 									<li>Record Count: #prc.qbQueries[ i ].query.recordCount#</li>
 									<cfif prc.qbQueries[ i ].bindings.len()>
 										<li>
 											Bindings (#prc.qbQueries[ i ].bindings.len()#)
 											<ul id="Query#i#Binding">
 												<cfloop from=1 to="#prc.qbQueries[ i ].bindings.len()#" index="b">
-													<li><cfdump var="#prc.qbQueries[ i ].bindings[ b ]#"></li>
+													<li>###b#) <b>Value:</b> #prc.qbQueries[ i ].bindings[ b ].value# - <b>SQLTYPE:</b> #prc.qbQueries[ i ].bindings[ b ].cfsqltype#
+														<cfif prc.qbQueries[ i ].bindings[ b ].null>
+															(NULL)
+														</cfif>
+														<cfif prc.qbQueries[ i ].bindings[ b ].list>
+															(LIST)
+														</cfif>
+													</li>
 												</cfloop>
 											</ul>
 										</li>
