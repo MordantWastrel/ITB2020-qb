@@ -72,17 +72,17 @@ component {
 
         query.newQuery()
             .from( "table1" )
-            .insert( [
+            .insert( {
                 FK_Workorder = 1,
                 CUSTFIELDVALUE = 'A Custom Field Value from Table1'
-            ] );
+             } );
         
         query.newQuery()
             .from( "table2" )
-            .insert( [
+            .insert( { 
                 FK_WorkOrder = 3,
                 CUSTFIELDVALUE = 'A Custom Field Value from Table2'
-            ])
+            } );
     }
 
     function down( schema, query ) {
