@@ -34,8 +34,10 @@
 			<cfoutput>
 				<h4>Main query SQL:</h4>
 				<cfdump var="#prc.sql#">
-				<h4>Main query result:</h4>
-				<cfdump var="#prc.result#">
+				<cfif event.privateValueExists( "result")>
+					<h4>Main query result:</h4>
+					<cfdump var="#prc.result#">	
+				</cfif>
 				<h4>#prc.qbQueries.len()# quer#(prc.qbQueries.len() == 1 ? 'y' : 'ies')# executed:</h4>
 				<ul>
 					<cfloop from=1 to="#prc.qbQueries.len()#" index="i">
