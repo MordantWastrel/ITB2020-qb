@@ -59,7 +59,7 @@
 											Bindings (#prc.qbQueries[ i ].bindings.len()#)
 											<ul id="Query#i#Binding">
 												<cfloop from=1 to="#prc.qbQueries[ i ].bindings.len()#" index="b">
-													<li>###b#) <b>Value:</b> #prc.qbQueries[ i ].bindings[ b ]?.value ?: ''# - <b>SQLTYPE:</b> #prc.qbQueries[ i ].bindings[ b ].cfsqltype#
+													<li>###b#) <b>Value:</b> #prc.qbQueries[ i ].bindings[ b ]?.value ?: ''# - <b>SQLTYPE:</b> #prc.qbQueries[ i ].bindings[ b ]?.cfsqltype#
 														<cfif prc.qbQueries[ i ].bindings[ b ].null>
 															(NULL)
 														</cfif>
